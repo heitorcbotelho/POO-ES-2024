@@ -5,6 +5,9 @@ public class App {
     static int quantidadeTurma = 0;
     static int quantidadeEstudantes = 0;
     static Scanner scanner = new Scanner(System.in);
+
+    static Campus[] campi = new Campus[10];
+    static int quantidadeCampus = 0;
     public static void main(String[] args) throws Exception {
         int opcao = 0;
 
@@ -21,7 +24,7 @@ public class App {
                 cadastrarTurma();
                 break;
             case 2:
-                //fazer cadastro de campus
+                cadastrarCampus();
                 break;
             case 3:
                 //fazer cadastro de curso
@@ -48,7 +51,24 @@ public class App {
             System.out.println("Nome turma: "+ turmas[i].nome);
             System.out.println("Numero minimo: "+ turmas[i].numeroMinimo);
             System.out.println("Ano de ingresso: "+ turmas[i].anoIngresso);
+            System.out.println("===================================");
+            System.out.println("Nome do campus: " + campi[i].nome);
+            System.out.println("Endereço do campus" + campi[i].endereco);
+            System.out.println("Cidade do campus: "+ campi[i].cidade);
         }
+    }
+    
+    public static void cadastrarCampus() {
+        scanner.nextLine();
+        Campus campo = new Campus();
+        System.out.println("Digite o nome do campus: ");
+        campo.nome = scanner.nextLine();
+        System.out.println("Digite o endereço do campus: ");
+        campo.endereco = scanner.nextLine();
+        System.out.println("Digite a cidade do campus: ");
+        campo.cidade = scanner.nextLine();
+        campi[quantidadeCampus] = campo;
+        quantidadeCampus++;
     }
 
     public static void cadastrarTurma() {
