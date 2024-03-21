@@ -12,6 +12,9 @@ public class App {
 
     static Curso[] cursos = new Curso[10];
     static int quantidadeCurso = 0;
+
+    static Estudante[] estudantes = new Estudante[10];
+    static int quantidadeAlunos = 0;
     public static void main(String[] args) throws Exception {
         int opcao = 0;
 
@@ -34,7 +37,7 @@ public class App {
                 cadastrarCurso();
                 break;
             case 4:
-                //fazer cadastro de estudante
+                cadastrarEstudante();
                 break;
             case 5:
                 //fazer cadastro de matricula
@@ -52,30 +55,70 @@ public class App {
 
     public static void gerarRelatorio() {
         for (int i = 0; i < quantidadeTurma; i++) {
+            System.out.println("==Turmas==");
             System.out.println("Nome turma: "+ turmas[i].nome);
             System.out.println("Numero minimo: "+ turmas[i].numeroMinimo);
             System.out.println("Ano de ingresso: "+ turmas[i].anoIngresso);
-            System.out.println("===================================");
+        }
+        if(quantidadeTurma == 0) {
+            System.out.println("Nenhuma turma cadastrada");
+        }
+
+        for(int i = 0; i < quantidadeCampus; i++) {
+            System.out.println("==Campus==");
             System.out.println("Nome do campus: " + campi[i].nome);
             System.out.println("Endereço do campus" + campi[i].endereco);
             System.out.println("Cidade do campus: "+ campi[i].cidade);
-            System.out.println("===================================");
+        }
+        if(quantidadeCampus == 0) {
+            System.out.println("Nenhum campus cadastrado");
+        }
+
+        for(int i = 0; i < quantidadeCurso; i++) {
+            System.out.println("==Curso==");
             System.out.println("Nome do curso: " + cursos[i].nome);
             System.out.println("Duração do curso: " + cursos[i].duracao);
             System.out.println("Modalidade do curso: "+ cursos[i].modalidade);
+        }
+        if(quantidadeCurso == 0) {
+            System.out.println("Nenhum curso cadastrado");
+        }
+
+        for(int i = 0; i < quantidadeEstudantes; i++) {
+            System.out.println("==Estudante==");
+            System.out.println("Nome do estudante: "+ estudantes[i].nome);
+            System.out.println("CPF do estudante: "+ estudantes[i].cpf);
+            System.out.println("Telefone do estudante: "+ estudantes[i].telefone);
+            System.out.println("Data de nascimento do estudante: "+ estudantes[i].dataNascimento);
+        }
     }
 
-        public static void cadastrarCurso() {
-            scanner.nextLine();
-            Curso curso = new Curso();
-            System.out.println("Digite o nome do curso: ");
-            curso.nome = scanner.nextLine();
-            System.out.println("Digite a duração do curso: ");
-            curso.duracao = scanner.nextLine();
-            System.out.println("Digite a modalidade do curso: ");
-            curso.modalidade = scanner.nextLine();
-            cursos[quantidadeCurso] = curso;
-            quantidadeCurso++;
+    public static void cadastrarCurso() {
+        scanner.nextLine();
+        Curso curso = new Curso();
+        System.out.println("Digite o nome do curso: ");
+        curso.nome = scanner.nextLine();
+        System.out.println("Digite a duração do curso: ");
+        curso.duracao = scanner.nextLine();
+        System.out.println("Digite a modalidade do curso: ");
+        curso.modalidade = scanner.nextLine();
+        cursos[quantidadeCurso] = curso;
+        quantidadeCurso++;
+    }
+
+    public static void cadastrarEstudante() {
+        scanner.nextLine();
+        Estudante estudante = new Estudante();
+        System.out.println("Digite o nome do estudante: ");
+        estudante.nome = scanner.nextLine();
+        System.out.println("Digite o CPF: ");
+        estudante.cpf = scanner.nextLine();
+        System.out.println("Digite o telefone do estudante: ");
+        estudante.telefone = scanner.nextLine();
+        System.out.println("Data de nascimento do estudante: ");
+        estudante.dataNascimento = scanner.nextLine();
+        estudantes[quantidadeAlunos] = estudante;
+        quantidadeEstudantes++;
     }
 
     
