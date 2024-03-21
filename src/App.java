@@ -15,6 +15,10 @@ public class App {
 
     static Estudante[] estudantes = new Estudante[10];
     static int quantidadeAlunos = 0;
+
+    static Matricula[] matriculas = new Matricula[10];
+    static int quantidadeMatricula = 0;
+    static boolean situacao = false;
     public static void main(String[] args) throws Exception {
         int opcao = 0;
 
@@ -40,7 +44,7 @@ public class App {
                 cadastrarEstudante();
                 break;
             case 5:
-                //fazer cadastro de matricula
+                cadastrarMatricula();
                 break;    
             case 6:
                 gerarRelatorio();
@@ -91,7 +95,34 @@ public class App {
             System.out.println("Telefone do estudante: "+ estudantes[i].telefone);
             System.out.println("Data de nascimento do estudante: "+ estudantes[i].dataNascimento);
         }
+        if(quantidadeAlunos == 0) {
+            System.out.println("Nenhum estudante cadastrado");
+        }
+
+        for(int i = 0; i < quantidadeMatricula; i++) {
+            System.out.println("==Matricula==");
+            System.out.println("RA da matricula: "+ matriculas[i].ra);
+            System.out.println("Data da matricula: "+ matriculas[i].data);
+            System.out.println("Situação da matricula: "+ matriculas[i].situacao);
+        }
+        if (quantidadeMatricula == 0) {
+            System.out.println("Nenhuma matricula cadastrada");
+        }
     }
+
+    public static void cadastrarMatricula() {
+        scanner.nextLine();
+        Matricula matricula = new Matricula();
+        System.out.println("RA da matricula: ");
+        matricula.ra = scanner.nextLine();
+        System.out.println("Data da matricula: ");
+        matricula.data = scanner.nextLine();
+        System.out.println("Situação da matricula: ");
+        matricula.situacao = scanner.nextBoolean();
+        matriculas[quantidadeMatricula] = matricula;
+        quantidadeMatricula++;
+    }
+
 
     public static void cadastrarCurso() {
         scanner.nextLine();
