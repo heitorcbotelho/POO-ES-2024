@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class App {
+    
     static Turma[] turmas = new Turma[10];
     static int quantidadeTurma = 0;
     static int quantidadeEstudantes = 0;
@@ -8,6 +9,9 @@ public class App {
 
     static Campus[] campi = new Campus[10];
     static int quantidadeCampus = 0;
+
+    static Curso[] cursos = new Curso[10];
+    static int quantidadeCurso = 0;
     public static void main(String[] args) throws Exception {
         int opcao = 0;
 
@@ -27,7 +31,7 @@ public class App {
                 cadastrarCampus();
                 break;
             case 3:
-                //fazer cadastro de curso
+                cadastrarCurso();
                 break;
             case 4:
                 //fazer cadastro de estudante
@@ -55,8 +59,25 @@ public class App {
             System.out.println("Nome do campus: " + campi[i].nome);
             System.out.println("Endereço do campus" + campi[i].endereco);
             System.out.println("Cidade do campus: "+ campi[i].cidade);
-        }
+            System.out.println("===================================");
+            System.out.println("Nome do curso: " + cursos[i].nome);
+            System.out.println("Duração do curso: " + cursos[i].duracao);
+            System.out.println("Modalidade do curso: "+ cursos[i].modalidade);
     }
+
+        public static void cadastrarCurso() {
+            scanner.nextLine();
+            Curso curso = new Curso();
+            System.out.println("Digite o nome do curso: ");
+            curso.nome = scanner.nextLine();
+            System.out.println("Digite a duração do curso: ");
+            curso.duracao = scanner.nextLine();
+            System.out.println("Digite a modalidade do curso: ");
+            curso.modalidade = scanner.nextLine();
+            cursos[quantidadeCurso] = curso;
+            quantidadeCurso++;
+    }
+
     
     public static void cadastrarCampus() {
         scanner.nextLine();
